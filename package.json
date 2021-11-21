@@ -2,6 +2,9 @@
   "name": "bantsbot-v2.0",
   "version": "1.0.0",
   "description": "Javascript version of discord music bot",
+  "engines": {
+    "node": "17.x"
+  },
   "main": "index.js",
   "scripts": {
     "test": "node src/index.js"

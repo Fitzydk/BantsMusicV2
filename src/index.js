@@ -52,26 +52,33 @@ client.on("messageCreate", async message => {
 
 
         if(command == "play"){
-            message.reply("**🔍 Searching for `" + ArgsString + "` 🔎**");
+            if(args[0] != undefined){
+                message.reply("**🔍 Searching for `" + ArgsString + "` 🔎**");
 
-            client.DisTube.search(ArgsString, 0, 1, 'video', false)
-                .then((all) => {
-                    waitPlaySong(all[0].name);
-                })
+                client.DisTube.search(ArgsString, 0, 1, 'video', false)
+                    .then((all) => {
+                        waitPlaySong(all[0].name);
+                    })
 
-            function waitPlaySong(songNamePlay){
-                client.DisTube.playVoiceChannel(VoiceChannel, ArgsString, {textChannel: message.channel, member: message.author});
-                try{
-                    if(queue.length == 0){
-                        return message.reply("**▶ Playing `" + songNamePlay + "` now ▶**");
+                function waitPlaySong(songNamePlay){
+                    client.DisTube.playVoiceChannel(VoiceChannel, ArgsString, {textChannel: message.channel, member: message.author});
+                    try{
+                        if(queue.length == 0){
+                            return message.reply("**▶ Playing `" + songNamePlay + "` now ▶**");
+                        }
+                        else{
+                            return message.reply(`**✅ Added \`${songNamePlay}\` to the queue ✅**`);
+                            
+                        }
                     }
-                    else{
-                        return message.reply(`**✅ Added \`${songNamePlay}\` to the queue ✅**`);
-                        
-                    }
+                    catch{}
+                    return message.reply("**▶ Playing `" + songNamePlay + "` now ▶**");
                 }
-                catch{}
-                return message.reply("**▶ Playing `" + songNamePlay + "` now ▶**");
+            
+
+            }
+            else{
+                return message.reply("**Please enter a song name after the `.play` command!**")
             }
         }
 

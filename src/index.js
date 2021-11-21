@@ -168,7 +168,7 @@ client.on("messageCreate", async message => {
                 message.reply(`**The bots ping is:** ${Math.round(client.ws.ping)}ms`);
                 break;
             case "help":
-                return message.reply(`**All commands are: \` ping, help, disconnect, pause, skip, jump, stop, np, resume, volume, queue, getvideo, loop, shuffle, seek, addrelated \` **`);
+                return message.reply(`**All commands are: \` play, playadv, ping, help, disconnect, pause, skip, jump, stop, np, resume, volume, queue, getvideo, loop, shuffle, seek, addrelated \` **`);
             case "disconnect":
                 const connection = discordVoice.getVoiceConnection(message.guild.id)
                 connection.destroy()

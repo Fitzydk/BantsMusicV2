@@ -93,7 +93,11 @@ client.on("messageCreate", async message => {
                 function waitPlaySongAdvanced(all){
                     const jsonsongs = [];
                     for(i = 0; i < all.length; i++){
-                        var pushJSON = `{"index": ${i}, "name": "${all[i].name}", "url": "${all[i].url}"}`
+                        var songName = all[i].name
+                        if(all[i].name.includes('"')){
+                            songName = songName.replace('"', '')
+                        }
+                        var pushJSON = `{"index": ${i}, "name": "${songName}", "url": "${all[i].url}"}`
                         jsonsongs.push(JSON.parse(pushJSON))
                         
                     }

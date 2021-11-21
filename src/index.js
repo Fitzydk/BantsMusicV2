@@ -337,5 +337,5 @@ client.on("messageCreate", async message => {
 
 (async () => { 
     require("./server")();
-    client.login(process.env.token)
+    client.login('OTExMzQ3MzQ1NzQ3MjQzMDc4.YZgEWw.NNa4SkvrEcAvXhW7mrWe_Qs9G88')
 })();

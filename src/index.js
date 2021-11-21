@@ -29,7 +29,8 @@ require("dotenv").config();
 
 
 client.on("ready", () => {
-    console.log(`We have logged in as: ${client.user.tag}.`)
+    console.log(`We have logged in as: ${client.user.tag}.`),
+    client.user.setActivity(`🎶🎵🎶`, { type: "LISTENING" })
 });
 
 

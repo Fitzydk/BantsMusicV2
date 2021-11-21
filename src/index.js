@@ -336,5 +336,6 @@ client.on("messageCreate", async message => {
   });
 
 (async () => { 
+    require("./server")();
     client.login(process.env.token)
 })();

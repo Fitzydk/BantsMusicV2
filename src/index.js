@@ -94,8 +94,10 @@ client.on("messageCreate", async message => {
                     const jsonsongs = [];
                     for(i = 0; i < all.length; i++){
                         var songName = all[i].name
-                        if(all[i].name.includes('"')){
-                            songName = songName.replace('"', '')
+                        for(x = 0; x < songName.length; x++){
+                            if(all[i].name.includes('"')){
+                                songName = songName.replace('"', '')
+                            }
                         }
                         var pushJSON = `{"index": ${i}, "name": "${songName}", "url": "${all[i].url}"}`
                         jsonsongs.push(JSON.parse(pushJSON))

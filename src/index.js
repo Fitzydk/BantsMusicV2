@@ -31,13 +31,16 @@ require("dotenv").config();
 client.on("ready", () => {
     console.log(`We have logged in as: ${client.user.tag}.`),
     client.user.setActivity(`🎶🎵🎶`, { type: "LISTENING" })
+    
 });
+
 
 
 client.on("messageCreate", async message => {
     if (message.content.startsWith(prefix)) {
         let args = message.content.slice(prefix.length).split(' ');
         let command = args.shift().toLowerCase();
+
 
         var ArgsString = ""
         

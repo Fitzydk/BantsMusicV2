@@ -1,3 +1,18 @@
+/*
+
+REMEMBER: You made a change in util.js on line 180 - 183 of:
+
+if (resolvable == null){
+            isNotInVoice = true
+        }
+
+and a change on line 190 of:
+
+&& isNotInVoice == false
+
+*/
+
+
 const prefix = ".";
 const { MessageEmbed, Client, Intents, Guild, DiscordAPIError, Message, User } = require("discord.js");
 const discordVoice = require("@discordjs/voice")

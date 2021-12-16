@@ -53,6 +53,7 @@ client.on("ready", () => {
 
 client.on("messageCreate", async message => {
     if (message.content.startsWith(prefix)) {
+        if(message.member.roles.cache.some((role) => role.name === 'BantMan')){
         let args = message.content.slice(prefix.length).split(' ');
         let command = args.shift().toLowerCase();
 
@@ -364,6 +365,10 @@ client.on("messageCreate", async message => {
                 return message.reply("**Added relevant songs to queue!**")
                 
         }
+    }
+    else{
+        return message.reply("**You need `BantMan` role in order to use commands!**")
+    }
         
 
     }

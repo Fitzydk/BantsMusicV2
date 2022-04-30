@@ -289,8 +289,15 @@ client.on("messageCreate", async message => {
                     return message.reply("** Queue is empty! **")
                 }
                 var vol = ArgsString
-                queue.setVolume(Number(vol), VoiceChannel)
-                return message.reply("** 🔊 Set volume to `" + vol + "%` 🔊**")
+                try{
+                    queue.setVolume(Number(vol), VoiceChannel)
+                    return message.reply("** 🔊 Set volume to `" + vol + "%` 🔊**")
+                }
+                catch{
+                    return message.reply("** ⚠ Please make sure your input is a number: `" + vol + "` ⚠**")
+                }
+                
+                
 
             case "queue":
                 if(queue == undefined){
